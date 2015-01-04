@@ -6,10 +6,12 @@ import evan.x.merz.wavIO;
 public class SpectrumFactory {
 
   public static Spectrum<?> getSpectrum(short[] wave) {
+    wave = handleNonPowerOf2(wave);
     return new Spectrum<Short>(ArrayUtils.toObject(wave));
   }
 
   public static Spectrum<?> getSpectrum(double[] wave) {
+    wave = handleNonPowerOf2(wave);
     return new Spectrum<Double>(ArrayUtils.toObject(wave));
   }
 
@@ -18,23 +20,42 @@ public class SpectrumFactory {
     wav.read();
     byte[] wavData = wav.myData;
     short[] shortData = ArrayUtils.byte2Short(wavData);
-    int shortLen = shortData.length;
-    // System.out.println("before concat : " + shortLen);
+    shortData = handleNonPowerOf2(shortData);
+    return new Spectrum<Short>(ArrayUtils.toObject(shortData));
+  }
+  
+  private static short[] handleNonPowerOf2(short[] arr) {
+    int length = arr.length;
     int i = 0;
     while (true) {
-      if (Math.pow(2, i) == shortLen || Math.pow(2, i + 1) == shortLen)
-        break;
-      else if (Math.pow(2, i) < shortLen && Math.pow(2, i + 1) > shortLen) {
-        int padding = (int) (Math.pow(2, i + 1) - shortLen);
+      if (Math.pow(2, i) == length || Math.pow(2, i + 1) == length) {
+        return arr;
+      }
+      else if (Math.pow(2, i) < length && Math.pow(2, i + 1) > length) {
+        int padding = (int) (Math.pow(2, i + 1) - length);
         short[] paddingArray = new short[padding];
-        shortData = ArrayUtils.concat(shortData, paddingArray);
-        // System.out.println("concat : " + Math.pow(2, i+1));
-        break;
+        arr = ArrayUtils.concat(arr, paddingArray);
+        return arr;
       }
       i++;
     }
-    // System.out.println("after concat : " + shortData.length);
-    return new Spectrum<Short>(ArrayUtils.toObject(shortData));
+  }
+  
+  private static double[] handleNonPowerOf2(double[] arr) {
+    int length = arr.length;
+    int i = 0;
+    while (true) {
+      if (Math.pow(2, i) == length || Math.pow(2, i + 1) == length) {
+        return arr;
+      }
+      else if (Math.pow(2, i) < length && Math.pow(2, i + 1) > length) {
+        int padding = (int) (Math.pow(2, i + 1) - length);
+        double[] paddingArray = new double[padding];
+        arr = ArrayUtils.concat(arr, paddingArray);
+        return arr;
+      }
+      i++;
+    }
   }
 
 }

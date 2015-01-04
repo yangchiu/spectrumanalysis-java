@@ -6,7 +6,7 @@ public class Sine {
   }
 
   public static double[] wave(double frequency) {
-    int length = 256;
+    int length = 250;
     double[] res = new double[length];
     for (int i = 0; i < length; i++) {
       res[i] = sine(frequency, i, 44100);
@@ -16,7 +16,7 @@ public class Sine {
 
   // overloading
   public static short[] wave(int frequency) {
-    int length = 256;
+    int length = 9000;
     short[] res = new short[length];
     for (int i = 0; i < length; i++) {
       res[i] = (short) sine(frequency, i, 44100);
