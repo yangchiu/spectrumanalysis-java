@@ -8,7 +8,7 @@ public class Testing {
   public static void main(String[] args) {
 
     // double version
-    double[] d = Sine.wave(7000.0);
+    double[] d = Sine.wave(7000.0, 144);
     System.out.println(Arrays.toString(d));
 
     Spectrum sp = SpectrumFactory.getSpectrum(d);
@@ -16,7 +16,7 @@ public class Testing {
     //System.out.println(sp.toString());
 
     // short version
-    short[] s = Sine.wave(15200);
+    short[] s = Sine.wave(15200, 5000);
     System.out.println(Arrays.toString(s));
 
     Spectrum sp1 = SpectrumFactory.getSpectrum(s);
@@ -26,7 +26,7 @@ public class Testing {
     // file input
     Spectrum sp2 = SpectrumFactory.getSpectrum("test.wav");
     System.out.println(sp2.getMaxFrequency());
-    //System.out.println(sp2.toString());
+    System.out.println(sp2.toString());
 
     // file input
     Spectrum sp3 = SpectrumFactory.getSpectrum("test1.wav");
