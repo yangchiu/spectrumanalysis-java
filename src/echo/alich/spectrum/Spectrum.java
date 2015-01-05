@@ -83,10 +83,12 @@ public class Spectrum<T extends Number> {
 
   }
 
-  public void printSprectrum() {
+  public String toString() {
+    StringBuilder sb = new StringBuilder("Frequency  :  Power\r\n----------------\r\n");
     for (int i = 0; i < frequencyBins.length; i++) {
-      System.out.println(frequencyBins[i] + "Hz : " + spectrum[i]);
+      sb.append(frequencyBins[i] + "Hz : " + spectrum[i] + "\r\n");
     }
+    return sb.toString();
   }
 
 }

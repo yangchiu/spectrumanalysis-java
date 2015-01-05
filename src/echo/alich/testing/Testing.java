@@ -13,6 +13,7 @@ public class Testing {
 
     Spectrum sp = SpectrumFactory.getSpectrum(d);
     System.out.println(sp.getMaxFrequency());
+    //System.out.println(sp.toString());
 
     // short version
     short[] s = Sine.wave(15200);
@@ -20,16 +21,17 @@ public class Testing {
 
     Spectrum sp1 = SpectrumFactory.getSpectrum(s);
     System.out.println(sp1.getMaxFrequency());
-    // sp1.printSprectrum();
+    //System.out.println(sp1.toString());
 
     // file input
     Spectrum sp2 = SpectrumFactory.getSpectrum("test.wav");
     System.out.println(sp2.getMaxFrequency());
+    //System.out.println(sp2.toString());
 
     // file input
     Spectrum sp3 = SpectrumFactory.getSpectrum("test1.wav");
     System.out.println(sp3.getMaxFrequency());
-    // sp3.printSprectrum();
+    //System.out.println(sp3.toString());
 
   }
 }
