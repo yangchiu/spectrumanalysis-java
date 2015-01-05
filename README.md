@@ -3,7 +3,7 @@
 - Only for sampling rate 44100 Hz, 16bits sound waves.
 - Based on Princeton University's FFT.java and Complex.java, and Evan X. Merz's wavIO.java.
 
-##### Usage
+#### Usage
 Sine.java is a testing class could generate sine wave. 
 ```java
 // generate a 7000Hz sine wave for testing, and its length is 144.
