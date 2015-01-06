@@ -47,6 +47,7 @@ System.out.println(sp2.getMaxFrequency()); // print 19437.500953674316
 System.out.println(sp2.toString());
 // print 
 // Frequency  :  Power
+// ----------------
 // ...
 // 19437.16449737549Hz : 1.4710080850219736E8
 // 19437.248611450195Hz : 8.507037367724767E7
