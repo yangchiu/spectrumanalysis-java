@@ -5,6 +5,7 @@
 
 #### Prerequisite
 * Java
+
 #### Usage
 Sine.java is a testing class could generate sine wave. 
 ```java
