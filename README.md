@@ -1,20 +1,20 @@
 # sound-wave-spectrum-analysis
 - Perform a fast Fourier transform on an input sound wave, and find the highest frequency content.
-- Support sampling rate 44100 Hz, 16bits sound waves only.
+- Only support sampling rate 44100 Hz, 16bits sound waves.
 - Based on Princeton University's FFT.java and Complex.java, and Evan X. Merz's wavIO.java.
 
 #### Prerequisite
 * Java
 
 #### Usage
-Sine.java is a testing class could generate sine wave. 
+Sine.java is a testing class could generate double[] type and short[] type of sine wave. 
 ```java
 // generate a 7000Hz sine wave for testing, and its length is 144.
 double[] d = Sine.wave(7000.0, 144);
 // generate a 15200Hz sine wave for testing, and its length is 5000.
 short[] s = Sine.wave(15200, 5000);
 ```
-Use SpectrumFactory to get spectrum instance.
+Using SpectrumFactory to get spectrum instance.
 SpectrumFactory can take short[] or double[] as input.
 ```java
 Spectrum sp = SpectrumFactory.getSpectrum(d);
